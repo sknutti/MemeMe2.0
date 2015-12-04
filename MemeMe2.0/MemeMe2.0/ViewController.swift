@@ -93,7 +93,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func save(memedImage: UIImage) {
         //Create the meme
-        var meme = Meme(topText: topLabel.text!, bottomText: bottomLabel.text!, image: imageView.image!, memedImage: memedImage)
+        let meme = Meme(topText: topLabel.text!, bottomText: bottomLabel.text!, image: imageView.image!, memedImage: memedImage)
+        
+        // Add it to the shared data model
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Create a UIImage that combines the Image View and the Textfields
