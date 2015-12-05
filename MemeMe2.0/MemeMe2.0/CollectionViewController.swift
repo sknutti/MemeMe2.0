@@ -26,7 +26,8 @@ class CollectionViewController : UICollectionViewController, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
+        navigationController?.navigationBar.hidden = false
         collectionView!.reloadData()
     }
     

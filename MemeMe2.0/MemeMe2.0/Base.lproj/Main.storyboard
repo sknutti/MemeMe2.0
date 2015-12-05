@@ -116,9 +116,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jfb-cy-bji" firstAttribute="top" secondItem="D57-nm-qjT" secondAttribute="bottom" constant="8" id="IhX-fs-zrj"/>
                             <constraint firstItem="jfb-cy-bji" firstAttribute="leading" secondItem="uzP-3o-0LI" secondAttribute="leadingMargin" constant="-20" id="ObR-3o-Gth"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jfb-cy-bji" secondAttribute="trailing" constant="-20" id="Uzw-O0-Tep"/>
+                            <constraint firstItem="jfb-cy-bji" firstAttribute="top" secondItem="D57-nm-qjT" secondAttribute="bottom" constant="44" id="agj-vZ-gHH"/>
                             <constraint firstItem="zf5-Kv-8kd" firstAttribute="top" secondItem="jfb-cy-bji" secondAttribute="bottom" id="rTZ-xq-GTO"/>
                         </constraints>
                         <variation key="default">
@@ -126,9 +126,9 @@
                                 <exclude reference="jfb-cy-bji"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="IhX-fs-zrj"/>
                                 <exclude reference="ObR-3o-Gth"/>
                                 <exclude reference="Uzw-O0-Tep"/>
+                                <exclude reference="agj-vZ-gHH"/>
                                 <exclude reference="rTZ-xq-GTO"/>
                             </mask>
                         </variation>
@@ -137,9 +137,9 @@
                                 <include reference="jfb-cy-bji"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="IhX-fs-zrj"/>
                                 <include reference="ObR-3o-Gth"/>
                                 <include reference="Uzw-O0-Tep"/>
+                                <include reference="agj-vZ-gHH"/>
                                 <include reference="rTZ-xq-GTO"/>
                             </mask>
                         </variation>
@@ -155,7 +155,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -206,6 +206,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QX0-kJ-2GZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="512" id="bti-sD-hRq"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bti-sD-hRq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bti-sD-hRq"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NUV-AF-jzy">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -246,20 +259,20 @@
                                 <exclude reference="Neg-NI-ZF7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2jS-58-7ab"/>
-                                <exclude reference="c2q-2j-gV4"/>
-                                <exclude reference="dcc-bk-xXB"/>
                                 <exclude reference="46w-5r-wkc"/>
                                 <exclude reference="G3O-Dn-ge0"/>
                                 <exclude reference="Lz3-UQ-NId"/>
-                                <exclude reference="8bd-V3-k9K"/>
-                                <exclude reference="Fg4-4w-jco"/>
-                                <exclude reference="cKV-dH-fHv"/>
-                                <exclude reference="sic-Mo-znU"/>
                                 <exclude reference="7BH-Q7-25g"/>
                                 <exclude reference="Afj-06-Tjc"/>
                                 <exclude reference="fZV-az-vDi"/>
                                 <exclude reference="kNB-H0-zkJ"/>
+                                <exclude reference="2jS-58-7ab"/>
+                                <exclude reference="c2q-2j-gV4"/>
+                                <exclude reference="dcc-bk-xXB"/>
+                                <exclude reference="8bd-V3-k9K"/>
+                                <exclude reference="Fg4-4w-jco"/>
+                                <exclude reference="cKV-dH-fHv"/>
+                                <exclude reference="sic-Mo-znU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -271,20 +284,20 @@
                                 <include reference="Neg-NI-ZF7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2jS-58-7ab"/>
-                                <include reference="c2q-2j-gV4"/>
-                                <include reference="dcc-bk-xXB"/>
                                 <include reference="46w-5r-wkc"/>
                                 <include reference="G3O-Dn-ge0"/>
                                 <include reference="Lz3-UQ-NId"/>
-                                <include reference="8bd-V3-k9K"/>
-                                <include reference="Fg4-4w-jco"/>
-                                <include reference="cKV-dH-fHv"/>
-                                <include reference="sic-Mo-znU"/>
                                 <include reference="7BH-Q7-25g"/>
                                 <include reference="Afj-06-Tjc"/>
                                 <include reference="fZV-az-vDi"/>
                                 <include reference="kNB-H0-zkJ"/>
+                                <include reference="2jS-58-7ab"/>
+                                <include reference="c2q-2j-gV4"/>
+                                <include reference="dcc-bk-xXB"/>
+                                <include reference="8bd-V3-k9K"/>
+                                <include reference="Fg4-4w-jco"/>
+                                <include reference="cKV-dH-fHv"/>
+                                <include reference="sic-Mo-znU"/>
                             </mask>
                         </variation>
                     </view>

@@ -15,7 +15,8 @@ class ListViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
+        navigationController?.navigationBar.hidden = false
         tableView!.reloadData()
     }
     
@@ -40,5 +41,15 @@ class ListViewController: UITableViewController {
         navigationController!.pushViewController(detailController, animated: true)
         
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        var memeCollection = memes
+        memeCollection.removeAtIndex(indexPath.row)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes = memeCollection
+        tableView.reloadData()
+    }
+    
     
 }

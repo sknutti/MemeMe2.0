@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var toolBar: UIToolbar!
     
     let textFieldDelegate = TextFieldDelegate()
+    var meme: Meme!
     
     var defaultTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -29,6 +30,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+        navigationController?.navigationBar.hidden = true
+        navBar.hidden = false
+        toolBar.hidden = false
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         let image: UIImage? = imageView.image
         if (image == nil) {
@@ -44,8 +48,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeTextField(topLabel, text: "TOP")
-        initializeTextField(bottomLabel, text: "BOTTOM")
+        if (meme == nil) {
+            initializeTextField(topLabel, text: "TOP")
+            initializeTextField(bottomLabel, text: "BOTTOM")
+        } else {
+            initializeTextField(topLabel, text: meme.topText)
+            initializeTextField(bottomLabel, text: meme.bottomText)
+            setImage(meme.image)
+        }
     }
     
     func initializeTextField(textField: UITextField, text: String) {
@@ -80,6 +90,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.save(memedImage)
             }
             self.dismissViewControllerAnimated(true, completion: nil)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
         presentViewController(controller, animated: true, completion: nil)
     }
@@ -89,6 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topLabel.text = "TOP"
         bottomLabel.text = "BOTTOM"
         shareButton.enabled = false
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func save(memedImage: UIImage) {
@@ -119,13 +131,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func setImage(image: UIImage?) {
         imageView.image = image
         imageView.contentMode = .ScaleAspectFit
         let image: UIImage? = imageView.image
         if (image != nil) {
             shareButton.enabled = true
         }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//        imageView.image = image
+//        imageView.contentMode = .ScaleAspectFit
+//        let image: UIImage? = imageView.image
+//        if (image != nil) {
+//            shareButton.enabled = true
+//        }
+        setImage(image)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
